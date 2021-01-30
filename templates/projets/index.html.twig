@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+    <!-- BANNER -->
+	<div class="section banner-page" data-background="{{ asset('frontend/images/banner.jpg') }}">
+		<div class="content-wrap pos-relative">
+			<div class="container">
+				<div class="col-12 col-md-12">
+					<div class="d-flex bd-highlight mb-2">
+						<div class="title-page">Projets</div>
+					</div>
+					<nav aria-label="breadcrumb">
+					  <ol class="breadcrumb ">
+					    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+					    <li class="breadcrumb-item active" aria-current="page">Projets</li>
+					  </ol>
+					</nav>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+    <!-- CONTENT -->
+	<div class="section">
+		<div class="content-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+
+						<nav class="navfilter">
+							<ul class="portfolio_filter">
+								<li><a href="#" class="active" data-filter="*">All</a></li>
+								<li><a href="#" data-filter=".eco">Eco</a></li>
+								<li><a href="#" data-filter=".manufacturing">Manufacturing</a></li>
+								<li><a href="#" data-filter=".industry">Industry</a></li>
+								<li><a href="#" data-filter=".oil">Oil</a></li>
+								<li><a href="#" data-filter=".gas">Gas</a></li>
+								<li><a href="#" data-filter=".factory">Factory</a></li>
+							</ul>
+						</nav>
+
+					</div>
+				</div>
+				<div class="row gutter-5 grid-v1">
+					<div class="grid-sizer-v1"></div>
+					<div class="gutter-sizer-v1"></div>
+					<div class="col-sm-6 col-md-4 grid-item-v1 eco manufacturing gas">
+						<div class="box-image-5 shadow">
+							<a href="{{ path('projets_detail') }}" title="Industrial Complex">
+								<div class="media">
+									<img src="{{ asset('frontend/images/project-img-1.jpg') }}" alt="" class="img-fluid">
+								</div>
+								<div class="body">
+									<div class="content">
+										<h4 class="title">INDUSTRIAL COMPLEX</h4>
+										<span class="category">Commodoenim</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>   
+{% endblock %}

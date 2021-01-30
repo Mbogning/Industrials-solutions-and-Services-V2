@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Teams{% endblock %}
+
+{% block body %}
+    <!-- BANNER -->
+	<div class="section banner-page" data-background="{{ asset('frontend/images/banner.jpg') }}">
+		<div class="content-wrap pos-relative">
+			<div class="container">
+				<div class="col-12 col-md-12">
+					<div class="d-flex bd-highlight mb-2">
+						<div class="title-page">Apropos</div>
+					</div>
+					<nav aria-label="breadcrumb">
+					  <ol class="breadcrumb ">
+					    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+					    <li class="breadcrumb-item active" aria-current="page">Team</li>
+					  </ol>
+					</nav>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+    <div class="section">
+		<div class="content-wrap">
+			<div class="container">
+				<div class="row mt-4">
+					
+					<!-- Item 1 -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<img src="{{ asset('frontend/images/team-img1.jpg') }}" alt="" class="img-fluid">
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title">BON BETEA Calvin</div>
+								<div class="text-primary">Technical Manager and Equipement</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Item 2 -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<img src="{{ asset('frontend/images/team-img2.jpg') }}" alt="" class="img-fluid">
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title">NGWANO TAKWI Elvis</div>
+								<div class="text-primary">General Officer</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Item 3 -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<img src="{{ asset('frontend/images/team-img3.jpg') }}" alt="" class="img-fluid">
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title">BANG TITTI Paul</div>
+								<div class="text-primary">Team Manager and Equipment</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>    
+{% endblock %}
