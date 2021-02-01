@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleBlogRepository;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ArticleBlogRepository::class)
+ * @ORM\Entity(repositoryClass=ArticleRepository::class)
  */
-class ArticleBlog
+class Article
 {
     /**
      * @ORM\Id
@@ -22,8 +22,8 @@ class ArticleBlog
      */
     private $title;
 
-        /**
-     * @ORM\Column(type="text")
+    /**
+     * @ORM\Column(type="text", length=255)
      */
     private $content;
 
@@ -38,10 +38,10 @@ class ArticleBlog
     private $postedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articleBlogs")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $blog;
+    private $user;
 
     public function getId(): ?int
     {
@@ -60,14 +60,14 @@ class ArticleBlog
         return $this;
     }
 
-    public function getContenu(): ?string
+    public function getContent(): ?string
     {
-        return $this->contenu;
+        return $this->content;
     }
 
-    public function setContenu(string $contenu): self
+    public function setContent(string $content): self
     {
-        $this->contenu = $contenu;
+        $this->content = $content;
 
         return $this;
     }
@@ -84,18 +84,6 @@ class ArticleBlog
         return $this;
     }
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
     public function getPostedAt(): ?\DateTimeInterface
     {
         return $this->postedAt;
@@ -108,14 +96,14 @@ class ArticleBlog
         return $this;
     }
 
-    public function getBlog(): ?User
+    public function getUser(): ?User
     {
-        return $this->blog;
+        return $this->user;
     }
 
-    public function setBlog(?User $blog): self
+    public function setUser(?User $user): self
     {
-        $this->blog = $blog;
+        $this->user = $user;
 
         return $this;
     }
