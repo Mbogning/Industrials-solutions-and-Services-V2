@@ -1,42 +1,96 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
 
-{% block title %}Log in!{% endblock %}
 
-{% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<!-- Mirrored from tixia.dexignzone.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Jan 2021 03:58:30 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend/images/favicon.png') }}">
+    <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+</head>
+<body class="h-100">
+    {% block body %}
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+            <div class="authincation h-100">
+                <div class="container h-100">
+                    <div class="row justify-content-center h-100 align-items-center">
+                        <div class="col-md-6">
+                            <div class="authincation-content">
+                                <div class="row no-gutters">
+                                    <div class="col-xl-12">
+                                        <div class="auth-form">
+                                            <h4 class="text-center mb-4">CONNEXION</h4>
+                                            <div class="form-group mb-1">
+                                                <label for="inputEmail"><strong>Email</strong></label>
+                                                <input type="email" value="{{ last_username }}" name="email" class="form-control" id="inputEmail" required autofocus autocomplete="off">
+                                            </div>
+                                            <div class="form-group mb-1">
+                                                <label for="inputPassword"><strong>Password</strong></label>
+                                                <input type="password" name="password" id="inputPassword" class="form-control" required>
+                                                <input type="hidden" name="_csrf_token"
+                                                    value="{{ csrf_token('authenticate') }}">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+                                            </div>
+                                            {#<div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                                <div class="form-group">
+                                                <div class="custom-control custom-checkbox ml-1">
+                                                        <input type="checkbox" class="custom-control-input" id="basic_checkbox_1">
+                                                        <label class="custom-control-label" for="basic_checkbox_1">Remember my preference</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <a href="page-forgot-password.html">Forgot Password?</a>
+                                                </div>
+                                            </div>#}
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary btn-block">Valider</button>
+                                            </div>
+                                            {#<div class="new-account mt-3">
+                                                <p>Don't have an account? <a class="text-primary" href="page-register.html">Sign up</a></p>
+                                            </div>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
+            {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
-{% endblock %}
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+            #}
+
+            
+        </form>
+
+        {% block javascripts %}
+            <script src="{{ asset('backend/vendor/global/global.min.js') }}"></script>
+            <script src="{{ asset('backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+            <script src="{{ asset('backend/js/custom.min.js') }}"></script>
+            <script src="{{ asset('backend/js/deznav-init.js') }}"></script>
+        {% endblock %}
+    {% endblock %}
+</body>
